@@ -40,7 +40,7 @@ export const HomePage: React.FC = () => {
       {/* 2. Key Stats Row */}
       <StatsRow />
 
-      {/* 3. Services Section ("End-to-end Solutions For A Digital World") */}
+      {/* 3. Services Section (connected technology capabilities) */}
       <ServicesSection
         onSelectService={(serviceId) => handleStartProject(serviceId)}
       />
@@ -53,10 +53,10 @@ export const HomePage: React.FC = () => {
       {/* 5. Value Proposition ("We Don't Just Build. We Solve.") */}
       <WhyChooseUs />
 
-      {/* 6. Development Lifecycle ("From Idea To Impact.") */}
+      {/* 6. Development Lifecycle (from idea to deployment) */}
       <ProcessSection />
 
-      {/* 7. Team Showcase ("The Experts Behind ElevOne.") */}
+      {/* 7. Team Showcase (StarVoniq's engineering team) */}
       <TeamSection />
 
       {/* 8. Client Testimonials ("What Our Clients Say") */}

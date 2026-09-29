@@ -28,9 +28,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   const services = [
     { id: 'web-dev', label: 'Web Development' },
     { id: 'software-dev', label: 'Software Development' },
-    { id: 'iot-solutions', label: 'IoT Solutions' },
-    { id: 'ai-ml', label: 'AI & ML Systems' },
-    { id: 'design-3d', label: 'Design & 3D' },
+    { id: 'iot-solutions', label: 'IoT & Embedded Systems' },
+    { id: 'ai-ml', label: 'Artificial Intelligence & Data' },
+    { id: 'security-systems', label: 'Security & Systems' },
+    { id: 'design-3d', label: 'Creative Technology' },
     { id: 'video-creative', label: 'Video & Creative' },
     { id: 'merchandise-branding', label: 'Merchandise & Branding' },
   ];

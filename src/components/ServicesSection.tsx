@@ -8,6 +8,7 @@ import {
   Layers,
   Video,
   Shirt,
+  ShieldCheck,
   ArrowRight,
 } from 'lucide-react';
 import { servicesData } from '../data/siteData';
@@ -55,6 +56,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             <Video className="w-5 h-5" />
           </div>
         );
+      case 'security-systems':
+        return (
+          <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
+        );
       case 'merchandise-branding':
         return (
           <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500">
@@ -82,12 +89,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-5">
-              End-to-end Solutions <br />
-              For A <span className="text-orange-500">Digital World</span>
+              Technology That <br />
+              <span className="text-orange-500">Works Together</span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-sm">
-              We design, build and deliver intelligent solutions tailored to your business needs.
+              We connect digital engineering, IoT and embedded systems, AI and data, secure systems, and creative technology to solve real-world problems—from idea to deployment.
             </p>
 
             <Link
@@ -101,7 +108,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </Link>
           </div>
 
-          {/* Right Column: 6 Services Cards Grid */}
+          {/* Right Column: Services Cards Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {servicesData.map((service) => (
               <div

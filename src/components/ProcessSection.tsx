@@ -45,7 +45,7 @@ export const ProcessSection: React.FC = () => {
             OUR PROCESS
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight mb-3">
-            From Idea To <span className="text-orange-500">Impact.</span>
+            From Idea To <span className="text-orange-500">Deployment.</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
             A proven process that ensures quality, transparency and results every step of the way.

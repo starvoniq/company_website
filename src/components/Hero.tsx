@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onViewWork }) => {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-400/30 bg-amber-500/[0.05] backdrop-blur-sm mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               <span className="text-[11px] font-semibold tracking-wider text-amber-300 uppercase">
-                BUILDING CONNECTED INTELLIGENCE
+                BUILDING CONNECTED TECHNOLOGY
               </span>
             </div>
 
@@ -30,17 +30,13 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onViewWork }) => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.08] text-white mb-6">
               Building Connected{' '}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-blue-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.4)]">
-                Intelligence.
+                Technology.
               </span>
             </h1>
 
             {/* Paragraph */}
             <p className="text-base sm:text-lg text-slate-400 max-w-xl font-normal leading-relaxed mb-8">
-              StarVoniq engineers high-performance digital systems, custom software, and premium{' '}
-              <span className="text-slate-200 underline decoration-amber-500/60 decoration-1 underline-offset-4 font-medium">
-                merchandise branding
-              </span>{' '}
-              that empower modern enterprises to innovate and lead.
+              StarVoniq brings software, data, artificial intelligence, and Internet of Things (IoT) technologies—including sensors and embedded systems—together to solve real-world problems. From idea to deployment, we build practical, scalable solutions.
             </p>
 
             {/* Dual Action Buttons */}

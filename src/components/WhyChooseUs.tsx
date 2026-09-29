@@ -6,22 +6,22 @@ export const WhyChooseUs: React.FC = () => {
     {
       icon: <Sparkles className="w-5 h-5 text-orange-500" />,
       title: 'Innovative Solutions',
-      description: 'We use the latest technologies to build future-ready products.',
+      description: 'We connect devices, platforms, data, and intelligence to address real-world needs.',
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-orange-500" />,
       title: 'Quality & Reliability',
-      description: 'We deliver tested solutions designed to scale and last.',
+      description: 'Security, resilience, and reliability are considered throughout the system.',
     },
     {
       icon: <Headphones className="w-5 h-5 text-orange-500" />,
       title: 'Client-Centered Approach',
-      description: 'We listen, understand and deliver exactly what you need.',
+      description: 'We start with your context and shape technology around the problem to solve.',
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-orange-500" />,
       title: 'Scalable & Future-Ready',
-      description: 'Our solutions grow with your business and adapt to change.',
+      description: 'From idea to deployment, we build practical systems ready to evolve.',
     },
   ];
 
@@ -39,7 +39,7 @@ export const WhyChooseUs: React.FC = () => {
         {/* Title and subtitle */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-[11px] font-bold uppercase tracking-widest text-orange-600 block mb-2">
-            WHY CHOOSE ELEVONE?
+            WHY STARVONIQ?
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
             We Don't Just Build. <span className="text-orange-500">We Solve.</span>

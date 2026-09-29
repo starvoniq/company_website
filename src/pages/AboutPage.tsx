@@ -15,13 +15,13 @@ export const AboutPage: React.FC = () => {
               ABOUT STARVONIQ
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
-              Building Connected Intelligence For Africa & The World.
+              Building Connected Technology.
             </h1>
             <p className="text-slate-300 text-base leading-relaxed mb-4">
-              StarVoniq is a premier technology engineering, digital systems, and corporate merchandise branding studio headquartered in Nairobi, Kenya. We bridge the gap between intelligent software systems and high-impact physical brand presence.
+              StarVoniq is a technology and innovation company headquartered in Nairobi, Kenya. We design and engineer connected systems that bring together software, data, artificial intelligence, Internet of Things (IoT), and embedded technologies to solve real-world problems.
             </p>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Founded on the belief that digital solutions and branded merchandise should be both aesthetically inspiring and architecturally resilient, we collaborate with startups, enterprises, and innovators across Africa and globally.
+              By connecting physical devices, digital platforms, data, and intelligence, we create practical, scalable solutions—from early ideas through deployment—for organizations in Africa and around the world.
             </p>
             
             <div className="flex items-center gap-3 text-slate-300 text-sm">
@@ -38,7 +38,7 @@ export const AboutPage: React.FC = () => {
                 <h3 className="text-lg font-bold text-white">Our Mission</h3>
               </div>
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
-                To engineer world-class, reliable, and intelligent digital products that elevate businesses, accelerate productivity, and pioneer the next era of digital infrastructure.
+                To make technology work together in useful ways—connecting devices, platforms, data, and intelligence to address real needs with secure, reliable systems, from idea to deployment.
               </p>
 
               <div className="space-y-2.5 pt-4 border-t border-white/10">
@@ -66,7 +66,7 @@ export const AboutPage: React.FC = () => {
               LEADERSHIP & ENGINEERING
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              The Minds Behind ElevOne
+              The Minds Behind StarVoniq
             </h2>
           </div>
 
