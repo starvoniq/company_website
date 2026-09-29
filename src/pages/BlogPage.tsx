@@ -16,7 +16,7 @@ export const BlogPage: React.FC = () => {
             Perspectives on Modern Tech, AI, and Systems
           </h1>
           <p className="text-slate-400 text-base leading-relaxed">
-            Technical write-ups, engineering deep dives, and product philosophies straight from the ElevOne development trenches.
+            Practical perspectives on connecting software, devices, data, and intelligence—along with the engineering decisions that make systems useful, secure, and resilient.
           </p>
         </div>
 

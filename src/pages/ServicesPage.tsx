@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { servicesData } from '../data/siteData';
 import { ContactModal } from '../components/ContactModal';
-import { ArrowRight, CheckCircle2, Code2, Globe, Wifi, Cpu, Layers, Video, Shirt } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Code2, Globe, Wifi, Cpu, Layers, Video, Shirt, ShieldCheck } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -21,6 +21,8 @@ export const ServicesPage: React.FC = () => {
         return <Layers className="w-6 h-6 text-amber-400" />;
       case 'video-creative':
         return <Video className="w-6 h-6 text-violet-400" />;
+      case 'security-systems':
+        return <ShieldCheck className="w-6 h-6 text-blue-400" />;
       case 'merchandise-branding':
         return <Shirt className="w-6 h-6 text-amber-400" />;
       default:
@@ -38,10 +40,10 @@ export const ServicesPage: React.FC = () => {
             OUR CAPABILITIES
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Specialized Digital Services Built For Scale.
+            Connected Technology, From Idea To Deployment.
           </h1>
           <p className="text-slate-400 text-base leading-relaxed">
-            From modern responsive web applications to enterprise cloud systems, embedded IoT telemetry, and corporate merchandise branding, StarVoniq engineers high-performance digital products from Nairobi to the world.
+            StarVoniq brings together digital engineering, IoT and embedded systems, artificial intelligence and data, secure infrastructure, and creative technology to solve practical problems with solutions built to scale.
           </p>
         </div>
 

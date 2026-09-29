@@ -54,7 +54,7 @@ export const StarVoniqLogo: React.FC<LogoProps> = ({
             </span>
           </div>
           <span className={`font-bold uppercase text-slate-400 mt-1 leading-none ${subSizes[size]} transition-colors group-hover:text-amber-400/90`}>
-            Building Connected Intelligence
+            Building Connected Technology
           </span>
         </div>
       )}

@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <StarVoniqLogo size="md" className="mb-4" />
             
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm mb-6">
-              Engineering intelligent digital systems and high-impact corporate merchandise branding to power business growth worldwide.
+              Connecting software, data, AI, IoT, sensors, and embedded systems to solve real-world problems—from idea to deployment.
             </p>
 
             {/* Social Icons */}
@@ -118,17 +118,22 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/services#iot-solutions" className="hover:text-orange-400 transition-colors">
-                  IoT Solutions
+                  IoT & Embedded Systems
                 </Link>
               </li>
               <li>
                 <Link to="/services#ai-ml" className="hover:text-orange-400 transition-colors">
-                  AI & ML Systems
+                  AI & Data Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#security-systems" className="hover:text-orange-400 transition-colors">
+                  Security & Systems
                 </Link>
               </li>
               <li>
                 <Link to="/services#design-3d" className="hover:text-orange-400 transition-colors">
-                  Design & 3D
+                  Creative Technology
                 </Link>
               </li>
               <li>
@@ -137,7 +142,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services#merchandise-branding" className="hover:text-orange-400 transition-colors text-amber-400 font-medium">
+                <Link to="/services#merchandise-branding" className="hover:text-orange-400 transition-colors">
                   Merchandise & Branding
                 </Link>
               </li>
@@ -212,7 +217,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright Bar */}
         <div className="pt-8 text-center text-slate-500 text-[11px]">
-          <p>© 2026 StarVoniq. All Rights Reserved. Building Connected Intelligence.</p>
+          <p>© 2026 StarVoniq. All Rights Reserved. StarVoniq — Building Connected Technology.</p>
         </div>
 
       </div>

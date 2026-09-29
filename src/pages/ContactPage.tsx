@@ -41,7 +41,7 @@ export const ContactPage: React.FC = () => {
             Start Your Journey With StarVoniq.
           </h1>
           <p className="text-slate-400 text-base leading-relaxed">
-            Have a project concept, need technical consulting, or looking to scale your engineering team? We’d love to hear from you.
+            Have a real-world problem you want technology to solve? Tell us about your idea—whether it involves software, data, AI, IoT, sensors, embedded systems, or secure infrastructure. We can help take it from idea to deployment.
           </p>
         </div>
 
@@ -170,9 +170,10 @@ export const ContactPage: React.FC = () => {
                       >
                         <option value="Web Development">Web Development</option>
                         <option value="Software Development">Software Development</option>
-                        <option value="IoT Solutions">IoT Solutions</option>
-                        <option value="AI & ML Systems">AI & ML Systems</option>
-                        <option value="Design & 3D">Design & 3D</option>
+                        <option value="IoT & Embedded Systems">IoT & Embedded Systems</option>
+                        <option value="Artificial Intelligence & Data">Artificial Intelligence & Data</option>
+                        <option value="Security & Systems">Security & Systems</option>
+                        <option value="Creative Technology">Creative Technology</option>
                         <option value="Video & Creative">Video & Creative</option>
                         <option value="Merchandise & Corporate Branding">Merchandise & Corporate Branding</option>
                       </select>

@@ -10,7 +10,7 @@ export const PortfolioPage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  const categories = ['All', 'Web Development', 'IoT Solution', 'AI / NLP', 'Merchandise & Branding'];
+  const categories = ['All', 'Web Development', 'Business Website', 'E-Commerce'];
 
   const filteredProjects = activeCategory === 'All'
     ? projectsData
@@ -26,10 +26,10 @@ export const PortfolioPage: React.FC = () => {
             PROVEN TRACK RECORD
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Featured Projects & Engineering Case Studies
+            Selected Projects
           </h1>
           <p className="text-slate-400 text-base leading-relaxed">
-            Take a look at how we’ve helped businesses build modern platforms, streamline operations with IoT, automate with AI, and launch distinctive corporate merchandise.
+            A selection of websites and digital platforms built for schools, local businesses, and commerce. Each project starts with its audience and the real needs it must serve.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export const PortfolioPage: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-white/5 text-xs font-semibold text-slate-400 group-hover:text-white">
-                <span>View Full Case Study</span>
+                <span>View Project</span>
                 <span className="w-7 h-7 rounded-full bg-white/5 group-hover:bg-orange-500 text-white flex items-center justify-center transition-colors">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
