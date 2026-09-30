@@ -14,19 +14,16 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 sm:py-28 bg-[#F8FAFC] text-[#1E293B] relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="testimonials" className="py-20 sm:py-28 bg-[#F8FAFC] text-[#1E293B] relative overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title row */}
-        <div className="text-left mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] mb-2 block">
-            TESTIMONIALS
+        <div className="text-left mb-14">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3 block">
+            // CLIENT VALIDATION
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1F4D] leading-tight">
-            What Our Clients Say
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B1F4D] leading-tight">
+            Trusted By Engineering & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">Product Leaders.</span>
           </h2>
         </div>
 
@@ -36,7 +33,7 @@ export const TestimonialsSection: React.FC = () => {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-[#E5E7EB] bg-white hover:bg-blue-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md"
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -45,7 +42,7 @@ export const TestimonialsSection: React.FC = () => {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-[#E5E7EB] bg-white hover:bg-blue-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md"
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -57,14 +54,14 @@ export const TestimonialsSection: React.FC = () => {
                 key={item.id}
                 className={`relative p-7 rounded-2xl bg-white border transition-all duration-300 flex flex-col justify-between text-left ${
                   idx === activeIndex
-                    ? 'border-[#2563EB]/40 shadow-xl shadow-blue-900/5 -translate-y-1'
-                    : 'border-[#E5E7EB] hover:border-[#2563EB]/30 shadow-sm'
+                    ? 'border-[#2563EB]/60 shadow-xl shadow-blue-950/5 -translate-y-1'
+                    : 'border-slate-200/90 hover:border-[#2563EB]/40 shadow-xs'
                 }`}
               >
                 <div>
-                  {/* Glowing Quote Icon */}
-                  <div className="mb-4">
-                    <Quote className="w-7 h-7 text-[#2563EB] fill-[#2563EB]/15 rotate-180" />
+                  <div className="flex items-center justify-between mb-4">
+                    <Quote className="w-6 h-6 text-[#2563EB] fill-[#2563EB]/10 rotate-180" />
+                    <span className="text-[10px] font-mono text-slate-400 font-semibold">VERIFIED CLIENT</span>
                   </div>
 
                   {/* Quote Body */}
@@ -74,9 +71,8 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-3 pt-4 border-t border-[#E5E7EB]">
-                  {/* User Initial Avatar or Photo */}
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#0B1F4D] to-[#2563EB] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0B1F4D] to-[#2563EB] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
                     {item.author
                       .split(' ')
                       .map((n) => n[0])
@@ -115,3 +111,4 @@ export const TestimonialsSection: React.FC = () => {
     </section>
   );
 };
+

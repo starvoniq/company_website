@@ -4,19 +4,19 @@ import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
 
 export const BlogPage: React.FC = () => {
   return (
-    <div className="pt-32 pb-24 text-left bg-white min-h-screen">
+    <div className="pt-32 pb-24 text-left bg-white min-h-screen bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] block mb-2">
-            INSIGHTS & ENGINEERING
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
+            // ENGINEERING DISPATCHES
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B1F4D] tracking-tight leading-tight mb-4">
-            Perspectives on Modern Tech, AI, and Systems
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1F4D] tracking-tight leading-[1.08] mb-4">
+            Technical Perspectives & Insights.
           </h1>
-          <p className="text-slate-600 text-base leading-relaxed">
-            Practical perspectives on connecting software, devices, data, and intelligence—along with the engineering decisions that make systems useful, secure, and resilient.
+          <p className="text-slate-600 text-base leading-relaxed font-normal">
+            Deep dives into connecting software, embedded devices, cloud data pipelines, and artificial intelligence architecture.
           </p>
         </div>
 

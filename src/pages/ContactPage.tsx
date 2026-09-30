@@ -29,19 +29,19 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 text-left bg-white min-h-screen">
+    <div className="pt-32 pb-24 text-left bg-white min-h-screen bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] block mb-2">
-            LET'S CONNECT
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
+            // DIRECT ENGAGEMENT
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B1F4D] tracking-tight leading-tight mb-4">
-            Start Your Journey With StarVoniq.
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1F4D] tracking-tight leading-[1.08] mb-4">
+            Connect With StarVoniq.
           </h1>
-          <p className="text-slate-600 text-base leading-relaxed">
-            Have a real-world problem you want technology to solve? Tell us about your idea—whether it involves software, data, AI, IoT, sensors, embedded systems, or secure infrastructure. We can help take it from idea to deployment.
+          <p className="text-slate-600 text-base leading-relaxed font-normal">
+            Have a project or technical challenge? Connect directly with our engineering and system architecture team in Nairobi or remotely worldwide.
           </p>
         </div>
 

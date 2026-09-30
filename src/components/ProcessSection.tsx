@@ -33,22 +33,19 @@ export const ProcessSection: React.FC = () => {
   };
 
   return (
-    <section id="process" className="py-20 sm:py-28 bg-[#F8FAFC] text-[#1E293B] relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-48 bg-[#2563EB]/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="process" className="py-20 sm:py-28 bg-[#F8FAFC] text-[#1E293B] relative overflow-hidden border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title area */}
         <div className="text-left mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] mb-2 block">
-            OUR PROCESS
+          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3 block">
+            // DELIVERY LIFECYCLE
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1F4D] leading-tight mb-3">
-            From Idea To <span className="text-[#2563EB]">Deployment.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B1F4D] leading-tight mb-3">
+            From Architecture To <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">Deployment.</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
-            A proven process that ensures quality, transparency and results every step of the way.
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl font-normal">
+            A rigorous engineering roadmap ensuring transparent milestones, verified quality, and seamless operational handoffs.
           </p>
         </div>
 
@@ -62,16 +59,16 @@ export const ProcessSection: React.FC = () => {
             {processSteps.map((step, idx) => (
               <div
                 key={step.step}
-                className="flex flex-col items-center text-center group"
+                className="flex flex-col items-center text-center group p-3 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-blue-950/5 hover:-translate-y-1 cursor-default"
               >
-                {/* Node icon circle */}
-                <div className="w-14 h-14 rounded-full bg-white border-2 border-[#2563EB] group-hover:bg-[#2563EB] group-hover:scale-110 flex items-center justify-center mb-3 transition-all duration-300 shadow-md shadow-blue-900/10 cursor-pointer">
+                {/* Node icon box */}
+                <div className="w-13 h-13 rounded-2xl bg-white border-2 border-slate-200 group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:scale-105 flex items-center justify-center mb-3 transition-all duration-300 shadow-xs cursor-pointer">
                   {getStepIcon(idx)}
                 </div>
 
-                {/* Step number badge */}
-                <span className="text-[11px] font-extrabold text-[#2563EB] tracking-wider mb-1">
-                  {step.step}
+                {/* Step number */}
+                <span className="text-[10px] font-mono font-bold text-[#2563EB] mb-1">
+                  PHASE 0{idx + 1}
                 </span>
 
                 {/* Title */}
@@ -80,7 +77,7 @@ export const ProcessSection: React.FC = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-[11px] text-slate-600 leading-relaxed max-w-[140px]">
+                <p className="text-[11px] text-slate-600 leading-relaxed max-w-[140px] font-normal">
                   {step.description}
                 </p>
               </div>
@@ -92,3 +89,4 @@ export const ProcessSection: React.FC = () => {
     </section>
   );
 };
+

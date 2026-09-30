@@ -48,8 +48,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md py-3 border-b border-[#E5E7EB] shadow-sm shadow-blue-900/5'
-          : 'bg-white/80 backdrop-blur-sm py-4 border-b border-[#E5E7EB]/70'
+          ? 'bg-white/95 backdrop-blur-md py-3 border-b border-slate-200/90 shadow-xs'
+          : 'bg-white/80 backdrop-blur-md py-4 border-b border-slate-200/60'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,17 +58,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
           <StarVoniqLogo />
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium">
+          <nav className="hidden lg:flex items-center space-x-1 p-1 bg-slate-100/80 rounded-full border border-slate-200 backdrop-blur-sm text-xs font-semibold">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.href}
                 onClick={(e) => handleNavClick(link, e)}
                 className={({ isActive }) =>
-                  `transition-colors duration-200 hover:text-[#2563EB] py-1 ${
+                  `px-4 py-1.5 rounded-full transition-all duration-200 ${
                     isActive && location.pathname === link.href && !location.hash
-                      ? 'text-[#2563EB] font-bold'
-                      : 'text-[#1E293B]'
+                      ? 'bg-white text-[#2563EB] shadow-xs font-bold'
+                      : 'text-slate-700 hover:text-[#2563EB] hover:bg-white/60'
                   }`
                 }
               >
@@ -87,12 +87,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
                   navigate('/contact');
                 }
               }}
-              className="group relative inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-full bg-[#FFC107] hover:bg-[#F4B400] text-[#0B1F4D] font-bold text-xs tracking-wide shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              className="group btn-shimmer relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FFC107] hover:bg-[#F4B400] text-[#0B1F4D] font-extrabold text-xs tracking-wider uppercase shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Let's Talk</span>
-              <span className="w-5 h-5 rounded-full bg-[#0B1F4D]/10 flex items-center justify-center transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#0B1F4D]" />
-              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#0B1F4D]" />
             </button>
           </div>
 
@@ -100,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#0B1F4D] hover:bg-slate-100 transition-colors"
+              className="p-2 rounded-xl text-[#0B1F4D] hover:bg-slate-100 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -111,19 +109,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E5E7EB] px-6 py-6 shadow-xl animate-in slide-in-from-top duration-200">
-          <div className="flex flex-col space-y-4">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 shadow-xl animate-in slide-in-from-top duration-200">
+          <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.href}
                 onClick={(e) => handleNavClick(link, e)}
-                className="text-base font-medium text-[#1E293B] hover:text-[#2563EB] py-1 transition-colors"
+                className="text-base font-semibold text-slate-800 hover:text-[#2563EB] py-1.5 px-2 rounded-lg hover:bg-blue-50 transition-colors"
               >
                 {link.name}
               </NavLink>
             ))}
-            <div className="pt-4 border-t border-[#E5E7EB]">
+            <div className="pt-4 border-t border-slate-200">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -145,3 +143,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
     </header>
   );
 };
+

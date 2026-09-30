@@ -5,43 +5,43 @@ import { LinkedInIcon, TwitterXIcon } from '../components/SocialIcons';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="pt-32 pb-24 text-left bg-white min-h-screen">
+    <div className="pt-32 pb-24 text-left bg-white min-h-screen bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Story & Vision Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           <div className="lg:col-span-7">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] block mb-2">
-              ABOUT STARVONIQ
+            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
+              // ABOUT STARVONIQ
             </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B1F4D] tracking-tight leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1F4D] tracking-tight leading-[1.08] mb-6">
               Building Connected Technology.
             </h1>
-            <p className="text-slate-700 text-base leading-relaxed mb-4">
-              StarVoniq is a technology and innovation company headquartered in Nairobi, Kenya. We design and engineer connected systems that bring together software, data, artificial intelligence, Internet of Things (IoT), and embedded technologies to solve real-world problems.
+            <p className="text-slate-700 text-base leading-relaxed mb-4 font-normal">
+              StarVoniq is a technology engineering and innovation company headquartered in Nairobi, Kenya. We design and engineer connected systems that bring together software architecture, data pipelines, artificial intelligence, Internet of Things (IoT), and embedded technologies to solve real-world problems.
             </p>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">
-              By connecting physical devices, digital platforms, data, and intelligence, we create practical, scalable solutions—from early ideas through deployment—for organizations in Africa and around the world.
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 font-normal">
+              By connecting physical sensors, digital platforms, data, and edge intelligence, we create practical, scalable solutions—from early architecture through global deployment.
             </p>
             
-            <div className="flex items-center gap-3 text-slate-700 text-sm">
-              <MapPin className="w-4 h-4 text-[#2563EB] shrink-0" />
-              <span>HQ: Nairobi, Kenya • Remote Worldwide</span>
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-mono border border-slate-200">
+              <MapPin className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+              <span>HQ: Nairobi, Kenya • Global Distributed Engineering</span>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-[#E5E7EB] shadow-xl shadow-blue-900/5 relative overflow-hidden">
+            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-blue-950/5 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563EB]/10 rounded-full blur-2xl pointer-events-none" />
               <div className="flex items-center gap-3 mb-4">
-                <Target className="w-6 h-6 text-[#2563EB]" />
+                <Target className="w-5 h-5 text-[#2563EB]" />
                 <h3 className="text-lg font-bold text-[#0B1F4D]">Our Mission</h3>
               </div>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                 To make technology work together in useful ways—connecting devices, platforms, data, and intelligence to address real needs with secure, reliable systems, from idea to deployment.
               </p>
 
-              <div className="space-y-2.5 pt-4 border-t border-[#E5E7EB]">
+              <div className="space-y-2.5 pt-4 border-t border-slate-100">
                 <div className="flex items-center gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0" />
                   <span>Obsession with Code Quality and Performance</span>
@@ -58,6 +58,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
+
 
         {/* Team Showcase */}
         <div>

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
+import { StarCursorTrail } from './components/StarCursorTrail';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { PortfolioPage } from './pages/PortfolioPage';
@@ -33,7 +34,8 @@ export function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white text-[#1E293B] flex flex-col font-sans selection:bg-[#2563EB] selection:text-white">
+      <div className="min-h-screen bg-white text-[#1E293B] flex flex-col font-sans selection:bg-[#2563EB] selection:text-white relative">
+        <StarCursorTrail />
         <ScrollToTop />
         <Navbar onOpenContactModal={() => setIsContactModalOpen(true)} />
         
@@ -61,3 +63,4 @@ export function App() {
 }
 
 export default App;
+
