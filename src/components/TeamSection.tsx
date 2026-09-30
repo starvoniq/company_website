@@ -6,11 +6,11 @@ import { teamData } from '../data/siteData';
 
 export const TeamSection: React.FC = () => {
   return (
-    <section id="team" className="py-20 sm:py-28 bg-white text-slate-900 relative overflow-hidden">
+    <section id="team" className="py-20 sm:py-28 bg-white text-[#1E293B] relative overflow-hidden">
       {/* Decorative dot matrix on right */}
-      <div className="absolute top-1/3 right-6 hidden xl:grid grid-cols-6 gap-2 opacity-25 pointer-events-none">
+      <div className="absolute top-1/3 right-6 hidden xl:grid grid-cols-6 gap-2 opacity-20 pointer-events-none">
         {Array.from({ length: 24 }).map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
         ))}
       </div>
 
@@ -19,17 +19,17 @@ export const TeamSection: React.FC = () => {
         {/* Header row with "Meet The Full Team ->" link */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] mb-2 block">
               OUR TEAM
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              The Experts Behind <span className="text-orange-600">StarVoniq.</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1F4D] leading-tight">
+              The Experts Behind <span className="text-[#2563EB]">StarVoniq.</span>
             </h2>
           </div>
 
           <Link
             to="/about"
-            className="group inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-orange-600 transition-colors mt-4 sm:mt-0"
+            className="group inline-flex items-center gap-2 text-xs font-bold text-[#0B1F4D] hover:text-[#2563EB] transition-colors mt-4 sm:mt-0"
           >
             <span>Meet The Full Team</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -44,7 +44,7 @@ export const TeamSection: React.FC = () => {
               className="flex flex-col group text-left"
             >
               {/* Photo Frame with subtle rounded corners */}
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 mb-4 border border-slate-200/80 group-hover:border-orange-300 transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 mb-4 border border-[#E5E7EB] group-hover:border-[#2563EB]/40 transition-all duration-300 shadow-sm group-hover:shadow-md">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -53,21 +53,21 @@ export const TeamSection: React.FC = () => {
               </div>
 
               {/* Name & Role */}
-              <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-orange-600 transition-colors">
+              <h3 className="text-sm font-bold text-[#0B1F4D] leading-snug group-hover:text-[#2563EB] transition-colors">
                 {member.name}
               </h3>
-              <p className="text-[11px] font-medium text-slate-500 mb-3">
+              <p className="text-[11px] font-semibold text-[#2563EB] mb-3">
                 {member.role}
               </p>
 
-              {/* Social Icons (In, X, etc.) */}
+              {/* Social Icons */}
               <div className="flex items-center gap-2.5 text-slate-400">
                 {member.socials.linkedin && (
                   <a
                     href={member.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-slate-800 transition-colors"
+                    className="hover:text-[#2563EB] transition-colors"
                     aria-label={`${member.name} LinkedIn`}
                   >
                     <LinkedInIcon className="w-3.5 h-3.5" />
@@ -78,7 +78,7 @@ export const TeamSection: React.FC = () => {
                     href={member.socials.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-slate-800 transition-colors"
+                    className="hover:text-[#2563EB] transition-colors"
                     aria-label={`${member.name} Twitter`}
                   >
                     <TwitterXIcon className="w-3.5 h-3.5" />
@@ -87,7 +87,7 @@ export const TeamSection: React.FC = () => {
                 {member.socials.email ? (
                   <a
                     href={`mailto:${member.socials.email}`}
-                    className="hover:text-slate-800 transition-colors"
+                    className="hover:text-[#2563EB] transition-colors"
                     aria-label={`${member.name} Email`}
                   >
                     <Mail className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ export const TeamSection: React.FC = () => {
                 ) : (
                   <a
                     href="#"
-                    className="hover:text-slate-800 transition-colors"
+                    className="hover:text-[#2563EB] transition-colors"
                     aria-label={`${member.name} Website`}
                   >
                     <Globe className="w-3.5 h-3.5" />

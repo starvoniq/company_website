@@ -8,9 +8,9 @@ interface CtaBannerProps {
 
 export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVideo }) => {
   return (
-    <section className="py-12 sm:py-16 bg-[#07090e]">
+    <section className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#ff5500] via-[#ff6500] to-[#e04500] p-8 sm:p-12 lg:p-14 shadow-2xl shadow-orange-900/40">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#0B1F4D] via-[#12337d] to-[#2563EB] p-8 sm:p-12 lg:p-14 shadow-2xl shadow-blue-950/20">
           
           {/* Subtle geometric background pattern overlay */}
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -19,7 +19,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVid
             
             {/* Left Content */}
             <div className="max-w-2xl">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-200 block mb-2">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#FFD54F] block mb-2">
                 READY TO BUILD SOMETHING AMAZING?
               </span>
 
@@ -36,18 +36,18 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVid
             <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={onStartProject}
-                className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#0a0d14] hover:bg-black text-white font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[#FFC107] hover:bg-[#F4B400] text-[#0B1F4D] font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-xl shadow-black/20 cursor-pointer hover:scale-105 active:scale-95"
               >
                 <span>Start a Project</span>
-                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
-                  <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <span className="w-5 h-5 rounded-full bg-[#0B1F4D]/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
+                  <ArrowRight className="w-3.5 h-3.5 text-[#0B1F4D]" />
                 </span>
               </button>
 
               <button
                 onClick={onWatchVideo}
                 aria-label="Play video showcase"
-                className="w-11 h-11 rounded-full bg-[#0a0d14] hover:bg-black text-white flex items-center justify-center transition-all duration-200 shadow-xl cursor-pointer hover:scale-110 active:scale-95 border border-white/10"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-200 shadow-xl cursor-pointer hover:scale-110 active:scale-95 border border-white/20 backdrop-blur-sm"
               >
                 <Play className="w-4 h-4 fill-white ml-0.5" />
               </button>

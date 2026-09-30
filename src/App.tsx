@@ -33,7 +33,7 @@ export function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      <div className="min-h-screen bg-white text-[#1E293B] flex flex-col font-sans selection:bg-[#2563EB] selection:text-white">
         <ScrollToTop />
         <Navbar onOpenContactModal={() => setIsContactModalOpen(true)} />
         

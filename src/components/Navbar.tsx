@@ -48,8 +48,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#07090e]/90 backdrop-blur-md py-3 border-b border-white/5 shadow-2xl shadow-black/50'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md py-3 border-b border-[#E5E7EB] shadow-sm shadow-blue-900/5'
+          : 'bg-white/80 backdrop-blur-sm py-4 border-b border-[#E5E7EB]/70'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,10 +65,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
                 to={link.href}
                 onClick={(e) => handleNavClick(link, e)}
                 className={({ isActive }) =>
-                  `transition-colors duration-200 hover:text-orange-400 py-1 ${
+                  `transition-colors duration-200 hover:text-[#2563EB] py-1 ${
                     isActive && location.pathname === link.href && !location.hash
-                      ? 'text-orange-500 font-semibold'
-                      : 'text-slate-300'
+                      ? 'text-[#2563EB] font-bold'
+                      : 'text-[#1E293B]'
                   }`
                 }
               >
@@ -87,11 +87,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
                   navigate('/contact');
                 }
               }}
-              className="group relative inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600 text-white font-medium text-xs tracking-wide shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              className="group relative inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-full bg-[#FFC107] hover:bg-[#F4B400] text-[#0B1F4D] font-bold text-xs tracking-wide shadow-md shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Let's Talk</span>
-              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+              <span className="w-5 h-5 rounded-full bg-[#0B1F4D]/10 flex items-center justify-center transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#0B1F4D]" />
               </span>
             </button>
           </div>
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="p-2 rounded-lg text-[#0B1F4D] hover:bg-slate-100 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -111,19 +111,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden bg-white border-b border-[#E5E7EB] px-6 py-6 shadow-xl animate-in slide-in-from-top duration-200">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.href}
                 onClick={(e) => handleNavClick(link, e)}
-                className="text-base text-slate-200 hover:text-orange-400 py-1 transition-colors"
+                className="text-base font-medium text-[#1E293B] hover:text-[#2563EB] py-1 transition-colors"
               >
                 {link.name}
               </NavLink>
             ))}
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-[#E5E7EB]">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -133,10 +133,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContactModal }) => {
                     navigate('/contact');
                   }
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-sm shadow-lg shadow-orange-500/30"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#FFC107] hover:bg-[#F4B400] text-[#0B1F4D] font-bold text-sm shadow-md shadow-amber-500/25"
               >
                 <span>Let's Talk</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 text-[#0B1F4D]" />
               </button>
             </div>
           </div>

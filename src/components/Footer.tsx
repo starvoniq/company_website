@@ -6,17 +6,17 @@ import { FacebookIcon, LinkedInIcon, TwitterXIcon, InstagramIcon } from './Socia
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#05070c] text-slate-400 text-xs border-t border-white/5 pt-16 pb-12">
+    <footer className="bg-[#0B1F4D] text-slate-300 text-xs border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/5 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10 text-left">
           
           {/* Column 1: Brand Info (Span 4) */}
           <div className="lg:col-span-4 flex flex-col items-start pr-4">
-            <StarVoniqLogo size="md" className="mb-4" />
+            <StarVoniqLogo variant="dark" size="md" className="mb-4" />
             
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm mb-6">
+            <p className="text-slate-300 text-xs leading-relaxed max-w-sm mb-6">
               Connecting software, data, AI, IoT, sensors, and embedded systems to solve real-world problems—from idea to deployment.
             </p>
 
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-8 h-8 rounded-full bg-white/[0.04] hover:bg-orange-500 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
               </a>
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-white/[0.04] hover:bg-orange-500 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <LinkedInIcon className="w-3.5 h-3.5" />
               </a>
@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="w-8 h-8 rounded-full bg-white/[0.04] hover:bg-orange-500 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <TwitterXIcon className="w-3.5 h-3.5" />
               </a>
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-full bg-white/[0.04] hover:bg-orange-500 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
               </a>
@@ -68,32 +68,32 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link to="/" className="hover:text-orange-400 transition-colors">
+                <Link to="/" className="hover:text-[#FFC107] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-orange-400 transition-colors">
+                <Link to="/about" className="hover:text-[#FFC107] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-orange-400 transition-colors">
+                <Link to="/services" className="hover:text-[#FFC107] transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="hover:text-orange-400 transition-colors">
+                <Link to="/portfolio" className="hover:text-[#FFC107] transition-colors">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-orange-400 transition-colors">
+                <Link to="/blog" className="hover:text-[#FFC107] transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-orange-400 transition-colors">
+                <Link to="/contact" className="hover:text-[#FFC107] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -107,42 +107,42 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link to="/services#web-dev" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#web-dev" className="hover:text-[#FFC107] transition-colors">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link to="/services#software-dev" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#software-dev" className="hover:text-[#FFC107] transition-colors">
                   Software Development
                 </Link>
               </li>
               <li>
-                <Link to="/services#iot-solutions" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#iot-solutions" className="hover:text-[#FFC107] transition-colors">
                   IoT & Embedded Systems
                 </Link>
               </li>
               <li>
-                <Link to="/services#ai-ml" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#ai-ml" className="hover:text-[#FFC107] transition-colors">
                   AI & Data Systems
                 </Link>
               </li>
               <li>
-                <Link to="/services#security-systems" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#security-systems" className="hover:text-[#FFC107] transition-colors">
                   Security & Systems
                 </Link>
               </li>
               <li>
-                <Link to="/services#design-3d" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#design-3d" className="hover:text-[#FFC107] transition-colors">
                   Creative Technology
                 </Link>
               </li>
               <li>
-                <Link to="/services#video-creative" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#video-creative" className="hover:text-[#FFC107] transition-colors">
                   Video & Creative
                 </Link>
               </li>
               <li>
-                <Link to="/services#merchandise-branding" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#merchandise-branding" className="hover:text-[#FFC107] transition-colors">
                   Merchandise & Branding
                 </Link>
               </li>
@@ -156,32 +156,32 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link to="/portfolio" className="hover:text-orange-400 transition-colors">
+                <Link to="/portfolio" className="hover:text-[#FFC107] transition-colors">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/services#process" className="hover:text-orange-400 transition-colors">
+                <Link to="/services#process" className="hover:text-[#FFC107] transition-colors">
                   Our Process
                 </Link>
               </li>
               <li>
-                <Link to="/contact#faqs" className="hover:text-orange-400 transition-colors">
+                <Link to="/contact#faqs" className="hover:text-[#FFC107] transition-colors">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-orange-400 transition-colors">
+                <Link to="/about" className="hover:text-[#FFC107] transition-colors">
                   Careers
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
+                <a href="#" className="hover:text-[#FFD54F] transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
+                <a href="#" className="hover:text-[#FFD54F] transition-colors">
                   Terms & Conditions
                 </a>
               </li>
@@ -195,19 +195,19 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-slate-300">
-                <Phone className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                <a href="tel:+254712345678" className="hover:text-orange-400 transition-colors">
+                <Phone className="w-3.5 h-3.5 text-[#FFC107] shrink-0" />
+                <a href="tel:+254712345678" className="hover:text-[#FFC107] transition-colors">
                   +254 712 345 678
                 </a>
               </li>
               <li className="flex items-center gap-2 text-slate-300">
-                <Mail className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                <a href="mailto:hello@starvoniq.com" className="hover:text-orange-400 transition-colors truncate">
+                <Mail className="w-3.5 h-3.5 text-[#FFC107] shrink-0" />
+                <a href="mailto:hello@starvoniq.com" className="hover:text-[#FFC107] transition-colors truncate">
                   hello@starvoniq.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-slate-300">
-                <MapPin className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#FFC107] shrink-0" />
                 <span>Nairobi, Kenya</span>
               </li>
             </ul>
@@ -216,7 +216,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="pt-8 text-center text-slate-500 text-[11px]">
+        <div className="pt-8 text-center text-slate-400 text-[11px]">
           <p>© 2026 StarVoniq. All Rights Reserved. StarVoniq — Building Connected Technology.</p>
         </div>
 

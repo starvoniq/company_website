@@ -34,7 +34,7 @@ export const servicesData: ServiceItem[] = [
     title: 'Web Development',
     description: 'Web and mobile experiences engineered to connect people with the services and information they need.',
     iconName: 'Globe',
-    accentColor: 'from-orange-500/20 to-orange-500/5 text-orange-500 border-orange-500/20',
+    accentColor: 'from-blue-600/20 to-blue-600/5 text-[#2563EB] border-[#2563EB]/20',
     badge: 'Popular',
     features: ['Custom Web Applications', 'Mobile-friendly Digital Products', 'Progressive Web Apps (PWA)', 'SEO & High-Performance Core Web Vitals'],
     technologies: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS', 'PostgreSQL'],

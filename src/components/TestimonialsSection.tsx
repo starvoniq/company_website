@@ -14,18 +14,18 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 sm:py-28 bg-[#070a12] text-white relative overflow-hidden">
+    <section id="testimonials" className="py-20 sm:py-28 bg-[#F8FAFC] text-[#1E293B] relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-600/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title row */}
         <div className="text-left mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-orange-500 mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] mb-2 block">
             TESTIMONIALS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1F4D] leading-tight">
             What Our Clients Say
           </h2>
         </div>
@@ -36,7 +36,7 @@ export const TestimonialsSection: React.FC = () => {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/10 bg-black/40 hover:bg-orange-500/20 hover:border-orange-500/60 items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer backdrop-blur-sm"
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-[#E5E7EB] bg-white hover:bg-blue-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -45,7 +45,7 @@ export const TestimonialsSection: React.FC = () => {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-white/10 bg-black/40 hover:bg-orange-500/20 hover:border-orange-500/60 items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer backdrop-blur-sm"
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full border border-[#E5E7EB] bg-white hover:bg-blue-50 hover:border-[#2563EB] items-center justify-center text-[#0B1F4D] transition-all cursor-pointer shadow-md"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -55,28 +55,28 @@ export const TestimonialsSection: React.FC = () => {
             {testimonialsData.map((item, idx) => (
               <div
                 key={item.id}
-                className={`relative p-7 rounded-2xl bg-[#0b0f19] border transition-all duration-300 flex flex-col justify-between text-left ${
+                className={`relative p-7 rounded-2xl bg-white border transition-all duration-300 flex flex-col justify-between text-left ${
                   idx === activeIndex
-                    ? 'border-orange-500/40 shadow-xl shadow-orange-950/20 -translate-y-1'
-                    : 'border-white/10 hover:border-white/20'
+                    ? 'border-[#2563EB]/40 shadow-xl shadow-blue-900/5 -translate-y-1'
+                    : 'border-[#E5E7EB] hover:border-[#2563EB]/30 shadow-sm'
                 }`}
               >
                 <div>
-                  {/* Glowing Orange Quote Icon */}
+                  {/* Glowing Quote Icon */}
                   <div className="mb-4">
-                    <Quote className="w-7 h-7 text-orange-500 fill-orange-500/20 rotate-180" />
+                    <Quote className="w-7 h-7 text-[#2563EB] fill-[#2563EB]/15 rotate-180" />
                   </div>
 
                   {/* Quote Body */}
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
                     "{item.quote}"
                   </p>
                 </div>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+                <div className="flex items-center gap-3 pt-4 border-t border-[#E5E7EB]">
                   {/* User Initial Avatar or Photo */}
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#0B1F4D] to-[#2563EB] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
                     {item.author
                       .split(' ')
                       .map((n) => n[0])
@@ -84,10 +84,10 @@ export const TestimonialsSection: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col">
-                    <span className="text-xs font-bold text-white leading-tight">
+                    <span className="text-xs font-bold text-[#0B1F4D] leading-tight">
                       {item.author}
                     </span>
-                    <span className="text-[11px] text-slate-400 leading-tight">
+                    <span className="text-[11px] text-slate-500 leading-tight">
                       {item.title}, {item.company}
                     </span>
                   </div>
@@ -104,7 +104,7 @@ export const TestimonialsSection: React.FC = () => {
                 onClick={() => setActiveIndex(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === activeIndex ? 'w-6 bg-orange-500' : 'w-2 bg-white/20 hover:bg-white/40'
+                  idx === activeIndex ? 'w-6 bg-[#2563EB]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                 }`}
               />
             ))}
