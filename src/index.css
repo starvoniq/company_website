@@ -62,12 +62,62 @@
   }
 }
 
+@keyframes flow-line {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes packet-travel {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
 .animate-float-subtle {
   animation: float-subtle 4s ease-in-out infinite;
 }
 
 .animate-pulse-glow-slow {
   animation: pulse-glow-slow 5s ease-in-out infinite;
+}
+
+.animate-flow-line {
+  background-size: 200% 200%;
+  animation: flow-line 2.5s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
 }
 
 /* Tech Grids & Ambient Lights */
