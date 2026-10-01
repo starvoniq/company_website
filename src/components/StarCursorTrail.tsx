@@ -18,14 +18,6 @@ interface StarParticle {
 
 export const StarCursorTrail: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const cursorRef = useRef<{ x: number; y: number; targetX: number; targetY: number; isHovering: boolean; visible: boolean }>({
-    x: -100,
-    y: -100,
-    targetX: -100,
-    targetY: -100,
-    isHovering: false,
-    visible: false,
-  });
 
   useEffect(() => {
     // Only activate on devices with fine pointer (mouse / trackpad)
@@ -59,12 +51,12 @@ export const StarCursorTrail: React.FC = () => {
       for (let i = 0; i < count; i++) {
         const angle = isBurst ? (Math.PI * 2 * i) / count + (Math.random() * 0.4 - 0.2) : Math.random() * Math.PI * 2;
         const speed = isBurst ? Math.random() * 2.5 + 1.2 : Math.random() * 0.8 + 0.2;
-        const size = isBurst ? Math.random() * 7 + 4 : Math.random() * 5 + 3;
-        const life = isBurst ? Math.random() * 30 + 25 : Math.random() * 25 + 15;
+        const size = isBurst ? Math.random() * 6 + 3 : Math.random() * 4 + 2.5;
+        const life = isBurst ? Math.random() * 25 + 20 : Math.random() * 20 + 12;
 
         particles.push({
-          x: x + (Math.random() * 6 - 3),
-          y: y + (Math.random() * 6 - 3),
+          x: x + (Math.random() * 4 - 2),
+          y: y + (Math.random() * 4 - 2),
           size,
           maxSize: size,
           alpha: 1,
@@ -82,22 +74,10 @@ export const StarCursorTrail: React.FC = () => {
 
     let lastSpawn = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      cursorRef.current.targetX = e.clientX;
-      cursorRef.current.targetY = e.clientY;
-      cursorRef.current.visible = true;
-
-      // Spawn trail particle if moved enough or enough time passed
       const now = performance.now();
-      if (now - lastSpawn > 24) {
+      if (now - lastSpawn > 20) {
         createStar(e.clientX, e.clientY);
         lastSpawn = now;
-      }
-
-      // Check if hovering interactive element
-      const target = e.target as HTMLElement | null;
-      if (target) {
-        const isClickable = target.closest('a, button, input, select, textarea, [role="button"], .cursor-pointer');
-        cursorRef.current.isHovering = !!isClickable;
       }
     };
 
@@ -105,13 +85,8 @@ export const StarCursorTrail: React.FC = () => {
       createStar(e.clientX, e.clientY, true);
     };
 
-    const handleMouseLeave = () => {
-      cursorRef.current.visible = false;
-    };
-
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mousedown', handleMouseDown, { passive: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
 
     // Draw 4-point diamond star shape
     const drawDiamondStar = (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number, rotation: number, color: string, alpha: number) => {
@@ -156,11 +131,6 @@ export const StarCursorTrail: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-      // Smooth cursor lerp
-      const c = cursorRef.current;
-      c.x += (c.targetX - c.x) * 0.35;
-      c.y += (c.targetY - c.y) * 0.35;
-
       // Update and render particles
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
@@ -189,47 +159,7 @@ export const StarCursorTrail: React.FC = () => {
         );
       }
 
-      // Draw Main Custom Star Pointer
-      if (c.visible && c.x > 0 && c.y > 0) {
-        const starSize = c.isHovering ? 9 : 6.5;
-        const outerGlow = c.isHovering ? 14 : 9;
-
-        // Subtle ambient ring when hovering
-        if (c.isHovering) {
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(c.x, c.y, 16, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(255, 193, 7, 0.4)';
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
-          ctx.restore();
-        }
-
-        // 4-Point Constellation Star Pointer
-        drawDiamondStar(
-          c.x,
-          c.y,
-          4,
-          starSize,
-          starSize * 0.28,
-          0,
-          c.isHovering ? '#FFC107' : '#2563EB',
-          0.95
-        );
-
-        // Core white glint
-        drawDiamondStar(
-          c.x,
-          c.y,
-          4,
-          starSize * 0.45,
-          starSize * 0.12,
-          Math.PI / 4,
-          '#FFFFFF',
-          1
-        );
-      }
-
+      // Particles are updated and rendered above
       animationFrameId = requestAnimationFrame(render);
     };
 
@@ -240,7 +170,6 @@ export const StarCursorTrail: React.FC = () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
