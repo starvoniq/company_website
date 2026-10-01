@@ -14,25 +14,13 @@ interface StarParticle {
   rotSpeed: number;
   color: string;
   points: number;
+  isDot?: boolean;
 }
 
 export const StarCursorTrail: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const cursorRef = useRef<{ x: number; y: number; targetX: number; targetY: number; isHovering: boolean; visible: boolean }>({
-    x: -100,
-    y: -100,
-    targetX: -100,
-    targetY: -100,
-    isHovering: false,
-    visible: false,
-  });
 
   useEffect(() => {
-    // Only activate on devices with fine pointer (mouse / trackpad)
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      return;
-    }
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
@@ -40,7 +28,7 @@ export const StarCursorTrail: React.FC = () => {
 
     let animationFrameId: number;
     const particles: StarParticle[] = [];
-    const colors = ['#FFC107', '#F4B400', '#2563EB', '#3B82F6', '#FFFFFF', '#FFD54F'];
+    const colors = ['#FFC107', '#F4B400', '#2563EB', '#60A5FA', '#38BDF8', '#FFFFFF', '#FDE047'];
 
     const resizeCanvas = () => {
       if (!canvas) return;
@@ -53,14 +41,16 @@ export const StarCursorTrail: React.FC = () => {
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('orientationchange', resizeCanvas);
 
-    const createStar = (x: number, y: number, isBurst = false) => {
-      const count = isBurst ? 8 : 1;
+    const createStar = (x: number, y: number, isBurst = false, countOverride?: number) => {
+      const count = countOverride ?? (isBurst ? 18 : 2);
       for (let i = 0; i < count; i++) {
         const angle = isBurst ? (Math.PI * 2 * i) / count + (Math.random() * 0.4 - 0.2) : Math.random() * Math.PI * 2;
-        const speed = isBurst ? Math.random() * 2.5 + 1.2 : Math.random() * 0.8 + 0.2;
-        const size = isBurst ? Math.random() * 7 + 4 : Math.random() * 5 + 3;
-        const life = isBurst ? Math.random() * 30 + 25 : Math.random() * 25 + 15;
+        const speed = isBurst ? Math.random() * 3.2 + 1.5 : Math.random() * 0.9 + 0.3;
+        const isMicro = Math.random() > 0.65;
+        const size = isBurst ? Math.random() * 7 + 3.5 : isMicro ? Math.random() * 2.5 + 1.5 : Math.random() * 5 + 2.5;
+        const life = isBurst ? Math.random() * 32 + 20 : isMicro ? Math.random() * 18 + 10 : Math.random() * 24 + 14;
 
         particles.push({
           x: x + (Math.random() * 6 - 3),
@@ -71,49 +61,87 @@ export const StarCursorTrail: React.FC = () => {
           maxLife: life,
           life,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.2, // slight upward float
+          vy: Math.sin(angle) * speed - 0.25, // gentle float
           rotation: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.15,
+          rotSpeed: (Math.random() - 0.5) * 0.18,
           color: colors[Math.floor(Math.random() * colors.length)],
-          points: Math.random() > 0.4 ? 4 : 5, // 4-point diamond star or 5-point
+          points: Math.random() > 0.35 ? 4 : 5,
+          isDot: isMicro,
         });
       }
     };
 
-    let lastSpawn = 0;
-    const handleMouseMove = (e: MouseEvent) => {
-      cursorRef.current.targetX = e.clientX;
-      cursorRef.current.targetY = e.clientY;
-      cursorRef.current.visible = true;
+    let lastX = -100;
+    let lastY = -100;
+    let lastTime = 0;
 
-      // Spawn trail particle if moved enough or enough time passed
+    const handlePointerMove = (x: number, y: number) => {
       const now = performance.now();
-      if (now - lastSpawn > 24) {
-        createStar(e.clientX, e.clientY);
-        lastSpawn = now;
+
+      if (lastX > 0 && lastY > 0) {
+        const dx = x - lastX;
+        const dy = y - lastY;
+        const dist = Math.hypot(dx, dy);
+
+        // Interpolate trail points for fast movement so no gaps appear
+        const steps = Math.min(Math.floor(dist / 10), 6);
+        if (steps > 1) {
+          for (let s = 1; s <= steps; s++) {
+            const ix = lastX + (dx * s) / steps;
+            const iy = lastY + (dy * s) / steps;
+            createStar(ix, iy, false, 1);
+          }
+        } else if (now - lastTime > 16) {
+          createStar(x, y, false, 2);
+          lastTime = now;
+        }
+      } else {
+        createStar(x, y, false, 2);
+        lastTime = now;
       }
 
-      // Check if hovering interactive element
-      const target = e.target as HTMLElement | null;
-      if (target) {
-        const isClickable = target.closest('a, button, input, select, textarea, [role="button"], .cursor-pointer');
-        cursorRef.current.isHovering = !!isClickable;
-      }
+      lastX = x;
+      lastY = y;
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      handlePointerMove(e.clientX, e.clientY);
     };
 
     const handleMouseDown = (e: MouseEvent) => {
       createStar(e.clientX, e.clientY, true);
     };
 
-    const handleMouseLeave = () => {
-      cursorRef.current.visible = false;
+    // Touch support for mobile devices
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        lastX = touch.clientX;
+        lastY = touch.clientY;
+        createStar(touch.clientX, touch.clientY, true, 10);
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      lastX = -100;
+      lastY = -100;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mousedown', handleMouseDown, { passive: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', handleTouchEnd, { passive: true });
 
-    // Draw 4-point diamond star shape
+    // Draw 4-point / 5-point diamond star shape
     const drawDiamondStar = (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number, rotation: number, color: string, alpha: number) => {
       ctx.save();
       ctx.beginPath();
@@ -145,7 +173,7 @@ export const StarCursorTrail: React.FC = () => {
       ctx.fill();
 
       // Soft glow center
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 6;
       ctx.shadowColor = color;
       ctx.fill();
 
@@ -156,11 +184,6 @@ export const StarCursorTrail: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-      // Smooth cursor lerp
-      const c = cursorRef.current;
-      c.x += (c.targetX - c.x) * 0.35;
-      c.y += (c.targetY - c.y) * 0.35;
-
       // Update and render particles
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
@@ -168,8 +191,9 @@ export const StarCursorTrail: React.FC = () => {
         p.x += p.vx;
         p.y += p.vy;
         p.rotation += p.rotSpeed;
-        p.alpha = Math.max(0, p.life / p.maxLife);
-        p.size = p.maxSize * (p.life / p.maxLife);
+        const progress = p.life / p.maxLife;
+        p.alpha = Math.max(0, progress);
+        p.size = p.maxSize * progress;
 
         if (p.life <= 0) {
           particles.splice(i, 1);
@@ -195,38 +219,33 @@ export const StarCursorTrail: React.FC = () => {
 
         // Subtle ambient ring when hovering
         if (c.isHovering) {
+        if (p.isDot) {
           ctx.save();
           ctx.beginPath();
-          ctx.arc(c.x, c.y, 16, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(255, 193, 7, 0.4)';
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
+          ctx.arc(p.x, p.y, p.size * 0.7, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha * 0.9;
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = p.color;
+          ctx.fill();
           ctx.restore();
+        } else {
+          drawDiamondStar(
+            p.x,
+            p.y,
+            p.points,
+            p.size,
+            p.size * 0.3,
+            p.rotation,
+            p.color,
+            p.alpha * 0.9
+          );
         }
+      }
 
-        // 4-Point Constellation Star Pointer
-        drawDiamondStar(
-          c.x,
-          c.y,
-          4,
-          starSize,
-          starSize * 0.28,
-          0,
-          c.isHovering ? '#FFC107' : '#2563EB',
-          0.95
-        );
-
-        // Core white glint
-        drawDiamondStar(
-          c.x,
-          c.y,
-          4,
-          starSize * 0.45,
-          starSize * 0.12,
-          Math.PI / 4,
-          '#FFFFFF',
-          1
-        );
+      // Limit particle array to prevent memory build up
+      if (particles.length > 250) {
+        particles.splice(0, particles.length - 250);
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -237,16 +256,20 @@ export const StarCursorTrail: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('orientationchange', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchcancel', handleTouchEnd);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-[9999] hidden md:block"
+      className="pointer-events-none fixed inset-0 z-[9999] block"
       style={{ willChange: 'transform' }}
     />
   );
