@@ -14,6 +14,7 @@ interface StarParticle {
   rotSpeed: number;
   color: string;
   points: number;
+  isDot?: boolean;
 }
 
 export const StarCursorTrail: React.FC = () => {
@@ -32,7 +33,7 @@ export const StarCursorTrail: React.FC = () => {
 
     let animationFrameId: number;
     const particles: StarParticle[] = [];
-    const colors = ['#FFC107', '#F4B400', '#2563EB', '#3B82F6', '#FFFFFF', '#FFD54F'];
+    const colors = ['#FFC107', '#F4B400', '#2563EB', '#60A5FA', '#38BDF8', '#FFFFFF', '#FDE047'];
 
     const resizeCanvas = () => {
       if (!canvas) return;
@@ -46,39 +47,67 @@ export const StarCursorTrail: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const createStar = (x: number, y: number, isBurst = false) => {
-      const count = isBurst ? 8 : 1;
+    const createStar = (x: number, y: number, isBurst = false, countOverride?: number) => {
+      const count = countOverride ?? (isBurst ? 18 : 2);
       for (let i = 0; i < count; i++) {
         const angle = isBurst ? (Math.PI * 2 * i) / count + (Math.random() * 0.4 - 0.2) : Math.random() * Math.PI * 2;
-        const speed = isBurst ? Math.random() * 2.5 + 1.2 : Math.random() * 0.8 + 0.2;
-        const size = isBurst ? Math.random() * 6 + 3 : Math.random() * 4 + 2.5;
-        const life = isBurst ? Math.random() * 25 + 20 : Math.random() * 20 + 12;
+        const speed = isBurst ? Math.random() * 3.2 + 1.5 : Math.random() * 0.9 + 0.3;
+        const isMicro = Math.random() > 0.65;
+        const size = isBurst ? Math.random() * 7 + 3.5 : isMicro ? Math.random() * 2.5 + 1.5 : Math.random() * 5 + 2.5;
+        const life = isBurst ? Math.random() * 32 + 20 : isMicro ? Math.random() * 18 + 10 : Math.random() * 24 + 14;
 
         particles.push({
-          x: x + (Math.random() * 4 - 2),
-          y: y + (Math.random() * 4 - 2),
+          x: x + (Math.random() * 6 - 3),
+          y: y + (Math.random() * 6 - 3),
           size,
           maxSize: size,
           alpha: 1,
           maxLife: life,
           life,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.2, // slight upward float
+          vy: Math.sin(angle) * speed - 0.25, // gentle float
           rotation: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.15,
+          rotSpeed: (Math.random() - 0.5) * 0.18,
           color: colors[Math.floor(Math.random() * colors.length)],
-          points: Math.random() > 0.4 ? 4 : 5, // 4-point diamond star or 5-point
+          points: Math.random() > 0.35 ? 4 : 5,
+          isDot: isMicro,
         });
       }
     };
 
-    let lastSpawn = 0;
+    let lastX = -100;
+    let lastY = -100;
+    let lastTime = 0;
+
     const handleMouseMove = (e: MouseEvent) => {
+      const x = e.clientX;
+      const y = e.clientY;
       const now = performance.now();
-      if (now - lastSpawn > 20) {
-        createStar(e.clientX, e.clientY);
-        lastSpawn = now;
+
+      if (lastX > 0 && lastY > 0) {
+        const dx = x - lastX;
+        const dy = y - lastY;
+        const dist = Math.hypot(dx, dy);
+
+        // Interpolate trail points for fast mouse movement so no gaps appear
+        const steps = Math.min(Math.floor(dist / 10), 6);
+        if (steps > 1) {
+          for (let s = 1; s <= steps; s++) {
+            const ix = lastX + (dx * s) / steps;
+            const iy = lastY + (dy * s) / steps;
+            createStar(ix, iy, false, 1);
+          }
+        } else if (now - lastTime > 16) {
+          createStar(x, y, false, 2);
+          lastTime = now;
+        }
+      } else {
+        createStar(x, y, false, 2);
+        lastTime = now;
       }
+
+      lastX = x;
+      lastY = y;
     };
 
     const handleMouseDown = (e: MouseEvent) => {
@@ -88,7 +117,7 @@ export const StarCursorTrail: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mousedown', handleMouseDown, { passive: true });
 
-    // Draw 4-point diamond star shape
+    // Draw 4-point / 5-point diamond star shape
     const drawDiamondStar = (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number, rotation: number, color: string, alpha: number) => {
       ctx.save();
       ctx.beginPath();
@@ -120,7 +149,7 @@ export const StarCursorTrail: React.FC = () => {
       ctx.fill();
 
       // Soft glow center
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 6;
       ctx.shadowColor = color;
       ctx.fill();
 
@@ -138,28 +167,44 @@ export const StarCursorTrail: React.FC = () => {
         p.x += p.vx;
         p.y += p.vy;
         p.rotation += p.rotSpeed;
-        p.alpha = Math.max(0, p.life / p.maxLife);
-        p.size = p.maxSize * (p.life / p.maxLife);
+        const progress = p.life / p.maxLife;
+        p.alpha = Math.max(0, progress);
+        p.size = p.maxSize * progress;
 
         if (p.life <= 0) {
           particles.splice(i, 1);
           continue;
         }
 
-        // Draw particle
-        drawDiamondStar(
-          p.x,
-          p.y,
-          p.points,
-          p.size,
-          p.size * 0.32,
-          p.rotation,
-          p.color,
-          p.alpha * 0.85
-        );
+        if (p.isDot) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * 0.7, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha * 0.9;
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = p.color;
+          ctx.fill();
+          ctx.restore();
+        } else {
+          drawDiamondStar(
+            p.x,
+            p.y,
+            p.points,
+            p.size,
+            p.size * 0.3,
+            p.rotation,
+            p.color,
+            p.alpha * 0.9
+          );
+        }
       }
 
-      // Particles are updated and rendered above
+      // Limit particle array to prevent memory build up
+      if (particles.length > 250) {
+        particles.splice(0, particles.length - 250);
+      }
+
       animationFrameId = requestAnimationFrame(render);
     };
 
