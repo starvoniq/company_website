@@ -200,25 +200,6 @@ export const StarCursorTrail: React.FC = () => {
           continue;
         }
 
-        // Draw particle
-        drawDiamondStar(
-          p.x,
-          p.y,
-          p.points,
-          p.size,
-          p.size * 0.32,
-          p.rotation,
-          p.color,
-          p.alpha * 0.85
-        );
-      }
-
-      // Draw Main Custom Star Pointer
-      if (c.visible && c.x > 0 && c.y > 0) {
-        const starSize = c.isHovering ? 9 : 6.5;
-
-        // Subtle ambient ring when hovering
-        if (c.isHovering) {
         if (p.isDot) {
           ctx.save();
           ctx.beginPath();
