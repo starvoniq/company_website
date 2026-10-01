@@ -8,6 +8,7 @@ import {
   Rocket,
   Headphones,
   ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import { processSteps } from '../data/siteData';
 
@@ -21,7 +22,7 @@ export const ProcessSection: React.FC = () => {
 
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % processSteps.length);
-    }, 2400);
+    }, 2600);
 
     return () => clearInterval(interval);
   }, [isHovered]);
@@ -29,8 +30,8 @@ export const ProcessSection: React.FC = () => {
   const getStepIcon = (index: number, isActive: boolean) => {
     const iconClass = `w-4 h-4 transition-all duration-300 ${
       isActive
-        ? 'text-white scale-110'
-        : 'text-[#2563EB] group-hover:text-white transition-colors'
+        ? 'text-[#0B1F4D] scale-110'
+        : 'text-[#60A5FA] group-hover:text-white transition-colors'
     }`;
 
     switch (index) {
@@ -62,7 +63,7 @@ export const ProcessSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title area */}
-        <div className="text-left mb-16">
+        <div className="text-left mb-14">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
             <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
@@ -77,115 +78,149 @@ export const ProcessSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 7 Connected Steps Horizontal Timeline with Flow Beam */}
+        {/* Cosmic Constellation Stage with stars.jpg Backdrop */}
         <div 
-          className="relative"
+          className="relative rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-800/80 overflow-hidden bg-[#060d24] shadow-2xl shadow-blue-950/30"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Glowing Animated Energy Beam (Desktop) */}
-          <div className="hidden lg:block absolute top-[42px] left-[7.14%] right-[7.14%] h-[2px] z-0 pointer-events-none">
-            {/* Base subtle guide line */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-200 via-blue-200/70 to-slate-200" />
-            
-            {/* Active completed glow line */}
-            <div 
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#2563EB] to-[#FFC107] transition-all duration-700 ease-out"
-              style={{ width: `${(activeStep / (processSteps.length - 1)) * 100}%` }}
+          {/* Cosmic Starfield Image Backdrop */}
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+            <img 
+              src="/images/stars.jpg" 
+              alt="StarVoniq Constellation"
+              className="w-full h-full object-cover opacity-65 mix-blend-screen scale-105 transform -translate-y-4"
             />
+            {/* Cinematic vignettes to seamlessly integrate with dark navy stage */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060d24] via-transparent to-[#060d24]/80" />
+            <div className="absolute inset-0 bg-radial from-transparent via-[#060d24]/50 to-[#060d24]" />
+            <div className="absolute -top-24 left-1/4 w-[400px] h-[400px] bg-[#2563EB]/20 rounded-full blur-[120px]" />
+          </div>
 
-            {/* Continuous traveling light packet along the circuit */}
-            <div className="absolute inset-0 overflow-hidden">
+          {/* Top Status Bar HUD */}
+          <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-slate-300">
+                STARVONIQ PIPELINE // 7 CONSTELLATION NODES
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#FFC107] font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFC107] animate-pulse" />
+              <span>PHASE 0{activeStep + 1}: {processSteps[activeStep].title.toUpperCase()}</span>
+            </div>
+          </div>
+
+          {/* 7 Connected Steps Horizontal Timeline with Flow Beam */}
+          <div className="relative z-10">
+            {/* Glowing Animated Energy Beam (Desktop) */}
+            <div className="hidden lg:block absolute top-[42px] left-[7.14%] right-[7.14%] h-[2px] z-0 pointer-events-none">
+              {/* Base subtle guide line */}
+              <div className="absolute inset-0 bg-white/15" />
+              
+              {/* Active completed glow line */}
               <div 
-                className="w-32 h-full bg-gradient-to-r from-transparent via-[#FFC107] to-transparent opacity-90 blur-[0.5px]"
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#2563EB] to-[#FFC107] transition-all duration-700 ease-out shadow-[0_0_8px_#2563EB]"
+                style={{ width: `${(activeStep / (processSteps.length - 1)) * 100}%` }}
+              />
+
+              {/* Continuous traveling light packet along the circuit */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div 
+                  className="w-36 h-full bg-gradient-to-r from-transparent via-[#FFC107] to-transparent opacity-95 blur-[0.5px]"
+                  style={{
+                    animation: 'packet-travel 2.6s linear infinite',
+                  }}
+                />
+              </div>
+
+              {/* Glowing comet head traveling smoothly with active step */}
+              <div 
+                className="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#2563EB]/60 blur-md transition-all duration-700 ease-out"
                 style={{
-                  animation: 'packet-travel 2.8s linear infinite',
+                  left: `${(activeStep / (processSteps.length - 1)) * 100}%`,
+                  transform: 'translate(-50%, -50%)',
+                }}
+              />
+              <div 
+                className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#FFC107] shadow-[0_0_14px_#FFC107] transition-all duration-700 ease-out"
+                style={{
+                  left: `${(activeStep / (processSteps.length - 1)) * 100}%`,
+                  transform: 'translate(-50%, -50%)',
                 }}
               />
             </div>
 
-            {/* Glowing comet head traveling smoothly with active step */}
-            <div 
-              className="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#2563EB]/40 blur-md transition-all duration-700 ease-out"
-              style={{
-                left: `${(activeStep / (processSteps.length - 1)) * 100}%`,
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
-            <div 
-              className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#FFC107] shadow-[0_0_12px_#FFC107] transition-all duration-700 ease-out"
-              style={{
-                left: `${(activeStep / (processSteps.length - 1)) * 100}%`,
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
-          </div>
+            {/* Steps Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-5 sm:gap-4 relative z-10">
+              {processSteps.map((step, idx) => {
+                const isActive = idx === activeStep;
 
-          {/* Steps Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-5 sm:gap-4 relative z-10">
-            {processSteps.map((step, idx) => {
-              const isActive = idx === activeStep;
+                return (
+                  <div
+                    key={step.step}
+                    onMouseEnter={() => setActiveStep(idx)}
+                    className={`flex flex-col items-center text-center group p-3.5 rounded-2xl transition-all duration-500 cursor-pointer ${
+                      isActive
+                        ? 'bg-gradient-to-b from-white/[0.14] to-[#0B1F4D]/90 shadow-2xl shadow-blue-950/40 -translate-y-2 border border-[#FFC107]/60 ring-1 ring-[#FFC107]/40 backdrop-blur-md'
+                        : 'bg-white/[0.05] hover:bg-white/[0.10] hover:shadow-lg hover:-translate-y-1 border border-white/10 backdrop-blur-md'
+                    }`}
+                  >
+                    {/* Node icon box with glowing aura when active */}
+                    <div className="relative mb-3.5">
+                      {/* Active pulse aura */}
+                      {isActive && (
+                        <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-[#2563EB]/40 via-amber-400/30 to-[#FFC107]/40 blur-md animate-pulse pointer-events-none" />
+                      )}
 
-              return (
-                <div
-                  key={step.step}
-                  onMouseEnter={() => setActiveStep(idx)}
-                  className={`flex flex-col items-center text-center group p-3.5 rounded-2xl transition-all duration-500 cursor-pointer ${
-                    isActive
-                      ? 'bg-white shadow-xl shadow-blue-950/8 -translate-y-2 border border-blue-200/80'
-                      : 'hover:bg-white hover:shadow-lg hover:shadow-blue-950/5 hover:-translate-y-1 border border-transparent'
-                  }`}
-                >
-                  {/* Node icon box with glowing aura when active */}
-                  <div className="relative mb-3.5">
-                    {/* Active pulse aura */}
-                    {isActive && (
-                      <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-[#2563EB]/30 via-indigo-500/20 to-[#FFC107]/30 blur-md animate-pulse pointer-events-none" />
-                    )}
+                      <div
+                        className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md relative z-10 ${
+                          isActive
+                            ? 'bg-gradient-to-br from-[#FFC107] to-[#F4B400] border-2 border-[#FFC107] text-[#0B1F4D] scale-110 shadow-amber-500/30'
+                            : 'bg-[#0B1F4D]/80 border-2 border-white/20 text-[#60A5FA] group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-105'
+                        }`}
+                      >
+                        {getStepIcon(idx, isActive)}
+                      </div>
+                    </div>
 
-                    <div
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-xs relative z-10 ${
-                        isActive
-                          ? 'bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] border-2 border-[#2563EB] text-white scale-110 shadow-lg shadow-blue-600/25 ring-4 ring-blue-500/15'
-                          : 'bg-white border-2 border-slate-200 group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:scale-105'
+                    {/* Step number badge */}
+                    <span 
+                      className={`text-[10px] font-mono font-bold tracking-wider mb-1.5 transition-colors ${
+                        isActive ? 'text-[#FFC107]' : 'text-blue-300/70 group-hover:text-blue-300'
                       }`}
                     >
-                      {getStepIcon(idx, isActive)}
-                    </div>
+                      PHASE 0{idx + 1}
+                    </span>
+
+                    {/* Title */}
+                    <h3 
+                      className={`text-xs sm:text-sm font-bold mb-1.5 transition-colors ${
+                        isActive ? 'text-white' : 'text-slate-200 group-hover:text-white'
+                      }`}
+                    >
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-[11px] text-slate-300 group-hover:text-white leading-relaxed max-w-[140px] font-normal transition-colors">
+                      {step.description}
+                    </p>
+
+                    {/* Subtle chevron flow indicator for smaller screens */}
+                    {idx < processSteps.length - 1 && (
+                      <div className="lg:hidden mt-3 text-slate-500 flex items-center justify-center">
+                        <ArrowRight className="w-3.5 h-3.5 text-blue-400/60" />
+                      </div>
+                    )}
                   </div>
-
-                  {/* Step number badge */}
-                  <span 
-                    className={`text-[10px] font-mono font-bold tracking-wider mb-1.5 transition-colors ${
-                      isActive ? 'text-[#2563EB]' : 'text-slate-400 group-hover:text-[#2563EB]'
-                    }`}
-                  >
-                    PHASE 0{idx + 1}
-                  </span>
-
-                  {/* Title */}
-                  <h3 
-                    className={`text-xs sm:text-sm font-bold mb-1.5 transition-colors ${
-                      isActive ? 'text-[#0B1F4D]' : 'text-[#0B1F4D] group-hover:text-[#2563EB]'
-                    }`}
-                  >
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[11px] text-slate-500 group-hover:text-slate-700 leading-relaxed max-w-[140px] font-normal transition-colors">
-                    {step.description}
-                  </p>
-
-                  {/* Subtle chevron flow indicator for smaller screens */}
-                  {idx < processSteps.length - 1 && (
-                    <div className="lg:hidden mt-3 text-slate-300 flex items-center justify-center">
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
