@@ -11,15 +11,23 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVid
     <section className="py-14 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Crystal-Clear Main Banner Card */}
-        <div className="relative rounded-3xl overflow-hidden bg-[#071330] border border-slate-700/60 shadow-2xl shadow-blue-950/25 p-8 sm:p-12 lg:p-14">
+        {/* Cosmic Starfield Banner Card */}
+        <div className="relative rounded-3xl overflow-hidden bg-[#060d24] border border-blue-500/25 shadow-2xl shadow-blue-950/30 p-8 sm:p-12 lg:p-14 group">
           
-          {/* Subtle sharp tech grid overlay */}
-          <div className="absolute inset-0 bg-tech-grid-dark opacity-15 pointer-events-none" />
-
-          {/* Controlled ambient glow highlights */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#2563EB]/25 rounded-full blur-[90px] pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#FFC107]/15 rounded-full blur-[80px] pointer-events-none" />
+          {/* Starfield Image Background */}
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+            <img 
+              src="/images/stars.jpg" 
+              alt="StarVoniq Constellation"
+              className="w-full h-full object-cover object-center opacity-60 mix-blend-screen scale-105 transition-transform duration-1000 group-hover:scale-110"
+            />
+            {/* High-contrast overlays ensuring 100% crisp typography */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060d24] via-[#060d24]/90 to-[#0B1F4D]/75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060d24] via-transparent to-[#060d24]/70" />
+            <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#2563EB]/20 rounded-full blur-[100px]" />
+            <div className="absolute -bottom-24 right-10 w-80 h-80 bg-[#FFC107]/15 rounded-full blur-[90px]" />
+            <div className="absolute inset-0 bg-tech-grid-dark opacity-10" />
+          </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 text-left">
             
