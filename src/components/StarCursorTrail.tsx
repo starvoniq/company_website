@@ -21,11 +21,6 @@ export const StarCursorTrail: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    // Only activate on devices with fine pointer (mouse / trackpad)
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      return;
-    }
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
@@ -46,6 +41,7 @@ export const StarCursorTrail: React.FC = () => {
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('orientationchange', resizeCanvas);
 
     const createStar = (x: number, y: number, isBurst = false, countOverride?: number) => {
       const count = countOverride ?? (isBurst ? 18 : 2);
@@ -79,9 +75,7 @@ export const StarCursorTrail: React.FC = () => {
     let lastY = -100;
     let lastTime = 0;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = e.clientX;
-      const y = e.clientY;
+    const handlePointerMove = (x: number, y: number) => {
       const now = performance.now();
 
       if (lastX > 0 && lastY > 0) {
@@ -89,7 +83,7 @@ export const StarCursorTrail: React.FC = () => {
         const dy = y - lastY;
         const dist = Math.hypot(dx, dy);
 
-        // Interpolate trail points for fast mouse movement so no gaps appear
+        // Interpolate trail points for fast movement so no gaps appear
         const steps = Math.min(Math.floor(dist / 10), 6);
         if (steps > 1) {
           for (let s = 1; s <= steps; s++) {
@@ -110,12 +104,42 @@ export const StarCursorTrail: React.FC = () => {
       lastY = y;
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      handlePointerMove(e.clientX, e.clientY);
+    };
+
     const handleMouseDown = (e: MouseEvent) => {
       createStar(e.clientX, e.clientY, true);
     };
 
+    // Touch support for mobile devices
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        lastX = touch.clientX;
+        lastY = touch.clientY;
+        createStar(touch.clientX, touch.clientY, true, 10);
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      lastX = -100;
+      lastY = -100;
+    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mousedown', handleMouseDown, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', handleTouchEnd, { passive: true });
 
     // Draw 4-point / 5-point diamond star shape
     const drawDiamondStar = (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number, rotation: number, color: string, alpha: number) => {
@@ -213,15 +237,20 @@ export const StarCursorTrail: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('orientationchange', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchcancel', handleTouchEnd);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-[9999] hidden md:block"
+      className="pointer-events-none fixed inset-0 z-[9999] block"
       style={{ willChange: 'transform' }}
     />
   );
