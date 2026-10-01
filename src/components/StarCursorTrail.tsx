@@ -192,7 +192,6 @@ export const StarCursorTrail: React.FC = () => {
       // Draw Main Custom Star Pointer
       if (c.visible && c.x > 0 && c.y > 0) {
         const starSize = c.isHovering ? 9 : 6.5;
-        const outerGlow = c.isHovering ? 14 : 9;
 
         // Subtle ambient ring when hovering
         if (c.isHovering) {
