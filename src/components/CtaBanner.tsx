@@ -14,18 +14,18 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVid
         {/* Cosmic Starfield Banner Card */}
         <div className="relative rounded-3xl overflow-hidden bg-[#060d24] border border-blue-500/25 shadow-2xl shadow-blue-950/30 p-8 sm:p-12 lg:p-14 group">
           
-          {/* Starfield Image Background */}
+          {/* Starfield Image Background - Soft, Blurry & Diffused */}
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
             <img 
               src="/images/stars.jpg" 
               alt="StarVoniq Constellation"
-              className="w-full h-full object-cover object-center opacity-60 mix-blend-screen scale-105 transition-transform duration-1000 group-hover:scale-110"
+              className="w-full h-full object-cover object-center opacity-40 mix-blend-screen scale-115 blur-lg transition-transform duration-1000 group-hover:scale-120"
             />
-            {/* High-contrast overlays ensuring 100% crisp typography */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#060d24] via-[#060d24]/90 to-[#0B1F4D]/75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060d24] via-transparent to-[#060d24]/70" />
-            <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#2563EB]/20 rounded-full blur-[100px]" />
-            <div className="absolute -bottom-24 right-10 w-80 h-80 bg-[#FFC107]/15 rounded-full blur-[90px]" />
+            {/* Smooth ambient overlay for seamless contrast */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060d24]/95 via-[#060d24]/85 to-[#0B1F4D]/75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060d24] via-transparent to-[#060d24]/80" />
+            <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#2563EB]/15 rounded-full blur-[120px]" />
+            <div className="absolute -bottom-24 right-10 w-80 h-80 bg-[#FFC107]/10 rounded-full blur-[100px]" />
             <div className="absolute inset-0 bg-tech-grid-dark opacity-10" />
           </div>
 
