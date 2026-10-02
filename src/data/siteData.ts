@@ -218,10 +218,44 @@ export const processSteps: ProcessStep[] = [
 
 export const teamData: TeamMember[] = [
   {
+    id: 'joseph-seko',
+    name: 'Joseph Seko',
+    role: 'Chief Product Officer',
+    image: '/images/joseph-seko.jpg',
+    bio: 'Product visionary driving innovation, user experience, and the strategic direction of our digital solutions.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      github: 'https://github.com',
+    },
+  },
+  {
+    id: 'morris-karema',
+    name: 'Morris Karema',
+    role: 'Vice President',
+    image: '/images/morris-karema.jpg',
+    bio: 'Dynamic leader focused on strategic growth, corporate partnerships, and scaling organizational capabilities.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  {
+    id: 'justin-maingi',
+    name: 'Justin Maingi',
+    role: 'Tech Lead',
+    image: '/images/justin-maingi.jpg',
+    bio: 'Expert software engineer driving technical architecture, innovative solutions, and leading agile development teams.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      github: 'https://github.com',
+    },
+  },
+  {
     id: 'faith-mutua',
     name: 'Faith Mutua',
     role: 'CEO',
-    image: '/images/team-1.png',
+    image: '/images/faith-mutua.jpg',
     bio: 'Visionary tech leader with over 8 years steering high-impact digital ventures and engineering ecosystems across Africa.',
     socials: {
       linkedin: 'https://linkedin.com',
@@ -230,10 +264,10 @@ export const teamData: TeamMember[] = [
     },
   },
   {
-    id: 'mathias-kieti',
-    name: 'Mathias Kieti',
-    role: 'COO',
-    image: '/images/team-2.png',
+    id: 'matthias-kieti',
+    name: 'Matthias Kieti',
+    role: 'Chief Operating Officer',
+    image: '/images/matthias-kieti.jpg',
     bio: 'Operational strategist orchestrating product delivery, business expansion, and cross-functional technology initiatives.',
     socials: {
       linkedin: 'https://linkedin.com',
@@ -242,10 +276,10 @@ export const teamData: TeamMember[] = [
     },
   },
   {
-    id: 'ronald-mutua',
-    name: 'Ronald Mutua',
+    id: 'ronald-m-mwau',
+    name: 'Ronald M. Mwau',
     role: 'CTO',
-    image: '/images/team-3.png',
+    image: '/images/ronald-m-mwau.jpg',
     bio: 'Full-stack systems architect leading distributed infrastructure, cloud platforms, and engineering best practices.',
     socials: {
       linkedin: 'https://linkedin.com',
@@ -254,27 +288,15 @@ export const teamData: TeamMember[] = [
     },
   },
   {
-    id: 'james-ngandu',
-    name: 'James Ngandu',
-    role: 'Cybersecurity Expert',
-    image: '/images/team-4.png',
+    id: 'james-mukuvi',
+    name: 'James Mukuvi',
+    role: 'Cybersecurity',
+    image: '/images/james-mukuvi.jpg',
     bio: 'Security researcher specializing in threat modeling, infrastructure hardening, compliance, and penetration testing.',
     socials: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
       email: 'james@starvoniq.com',
-    },
-  },
-  {
-    id: 'joseph-seko',
-    name: 'Joseph Seko',
-    role: '3D Expert',
-    image: '/images/team-5.png',
-    bio: 'Master 3D visual artist and motion designer sculpting photorealistic environments, interactive web assets, and CGI.',
-    socials: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      github: 'https://github.com',
     },
   },
 ];
