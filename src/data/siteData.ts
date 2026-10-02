@@ -217,40 +217,7 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const teamData: TeamMember[] = [
-  {
-    id: 'joseph-seko',
-    name: 'Joseph Seko',
-    role: 'Chief Product Officer',
-    image: '/images/joseph-seko.jpg',
-    bio: 'Product visionary driving innovation, user experience, and the strategic direction of our digital solutions.',
-    socials: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      github: 'https://github.com',
-    },
-  },
-  {
-    id: 'morris-karema',
-    name: 'Morris Karema',
-    role: 'Vice President',
-    image: '/images/morris-karema.jpg',
-    bio: 'Dynamic leader focused on strategic growth, corporate partnerships, and scaling organizational capabilities.',
-    socials: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-    },
-  },
-  {
-    id: 'justin-maingi',
-    name: 'Justin Maingi',
-    role: 'Tech Lead',
-    image: '/images/justin-maingi.jpg',
-    bio: 'Expert software engineer driving technical architecture, innovative solutions, and leading agile development teams.',
-    socials: {
-      linkedin: 'https://linkedin.com',
-      github: 'https://github.com',
-    },
-  },
+  // CEO
   {
     id: 'faith-mutua',
     name: 'Faith Mutua',
@@ -263,6 +230,7 @@ export const teamData: TeamMember[] = [
       github: 'https://github.com',
     },
   },
+  // COO
   {
     id: 'matthias-kieti',
     name: 'Matthias Kieti',
@@ -275,6 +243,19 @@ export const teamData: TeamMember[] = [
       github: 'https://github.com',
     },
   },
+  // Vice President
+  {
+    id: 'morris-karema',
+    name: 'Morris Karema',
+    role: 'Vice President',
+    image: '/images/morris-karema.jpg',
+    bio: 'Dynamic leader focused on strategic growth, corporate partnerships, and scaling organizational capabilities.',
+    socials: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+    },
+  },
+  // CTO
   {
     id: 'ronald-m-mwau',
     name: 'Ronald M. Mwau',
@@ -287,18 +268,44 @@ export const teamData: TeamMember[] = [
       github: 'https://github.com',
     },
   },
-  {
-    id: 'james-mukuvi',
-    name: 'James Mukuvi',
-    role: 'Cybersecurity',
-    image: '/images/james-mukuvi.jpg',
-    bio: 'Security researcher specializing in threat modeling, infrastructure hardening, compliance, and penetration testing.',
-    socials: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      email: 'james@starvoniq.com',
+// Chief Product Officer
+    {
+      id: 'joseph-seko',
+      name: 'Joseph Seko',
+      role: 'Chief Product Officer',
+      image: '/images/joseph-seko.jpg',
+      bio: 'Product visionary driving innovation, user experience, and the strategic direction of our digital solutions.',
+      socials: {
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+        github: 'https://github.com',
+      },
     },
-  },
+    // Cybersecurity
+    {
+      id: 'james-mukuvi',
+      name: 'James Mukuvi',
+      role: 'Cybersecurity',
+      image: '/images/james-mukuvi.jpg',
+      bio: 'Security researcher specializing in threat modeling, infrastructure hardening, compliance, and penetration testing.',
+      socials: {
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+        email: 'james@starvoniq.com',
+      },
+    },
+    // Tech Lead
+    {
+      id: 'justin-maingi',
+      name: 'Justin Maingi',
+      role: 'Tech Lead',
+      image: '/images/justin-maingi.jpg',
+      bio: 'Expert software engineer driving technical architecture, innovative solutions, and leading agile development teams.',
+      socials: {
+        linkedin: 'https://linkedin.com',
+        github: 'https://github.com',
+      },
+    },
 ];
 
 export const testimonialsData: TestimonialItem[] = [

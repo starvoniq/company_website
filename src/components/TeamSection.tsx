@@ -44,11 +44,11 @@ export const TeamSection: React.FC = () => {
               className="flex flex-col group text-left"
             >
               {/* Photo Frame with subtle rounded corners */}
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 mb-4 border border-[#E5E7EB] group-hover:border-[#2563EB]/40 transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-slate-100 mb-4 border border-[#E5E7EB] group-hover:border-[#2563EB]/40 transition-all duration-300 shadow-sm group-hover:shadow-md">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -59,49 +59,6 @@ export const TeamSection: React.FC = () => {
               <p className="text-[11px] font-semibold text-[#2563EB] mb-3">
                 {member.role}
               </p>
-
-              {/* Social Icons */}
-              <div className="flex items-center gap-2.5 text-slate-400">
-                {member.socials.linkedin && (
-                  <a
-                    href={member.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#2563EB] transition-colors"
-                    aria-label={`${member.name} LinkedIn`}
-                  >
-                    <LinkedInIcon className="w-3.5 h-3.5" />
-                  </a>
-                )}
-                {member.socials.twitter && (
-                  <a
-                    href={member.socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#2563EB] transition-colors"
-                    aria-label={`${member.name} Twitter`}
-                  >
-                    <TwitterXIcon className="w-3.5 h-3.5" />
-                  </a>
-                )}
-                {member.socials.email ? (
-                  <a
-                    href={`mailto:${member.socials.email}`}
-                    className="hover:text-[#2563EB] transition-colors"
-                    aria-label={`${member.name} Email`}
-                  >
-                    <Mail className="w-3.5 h-3.5" />
-                  </a>
-                ) : (
-                  <a
-                    href="#"
-                    className="hover:text-[#2563EB] transition-colors"
-                    aria-label={`${member.name} Website`}
-                  >
-                    <Globe className="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </div>
             </div>
           ))}
         </div>
