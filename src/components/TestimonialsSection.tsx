@@ -20,7 +20,7 @@ export const TestimonialsSection: React.FC = () => {
         {/* Title row */}
         <div className="text-left mb-14">
           <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3 block">
-            // CLIENT VALIDATION
+            CLIENT VALIDATION
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B1F4D] leading-tight">
             Trusted By Engineering & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">Product Leaders.</span>

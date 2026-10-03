@@ -10,7 +10,7 @@ export const BlogPage: React.FC = () => {
         {/* Page Header */}
         <div className="max-w-3xl mb-16">
           <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
-            // ENGINEERING DISPATCHES
+            ENGINEERING DISPATCHES
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1F4D] tracking-tight leading-[1.08] mb-4">
             Technical Perspectives & Insights.

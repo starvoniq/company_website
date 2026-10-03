@@ -16,7 +16,7 @@ export const ProcessSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  // Subtle, rhythmic sequential flow that gently cycles through steps
+  Subtle, rhythmic sequential flow that gently cycles through steps
   useEffect(() => {
     if (isHovered) return;
 
@@ -105,7 +105,7 @@ export const ProcessSection: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-slate-300">
-                STARVONIQ PIPELINE // 7 CONSTELLATION NODES
+                STARVONIQ PIPELINE 7 CONSTELLATION NODES
               </span>
             </div>
 

@@ -12,7 +12,7 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           <div className="lg:col-span-7">
             <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
-              // ABOUT STARVONIQ
+              ABOUT STARVONIQ
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1F4D] tracking-tight leading-[1.08] mb-6">
               Building Connected Technology.

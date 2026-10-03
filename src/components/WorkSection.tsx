@@ -21,7 +21,7 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onSelectProject }) => 
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
           <div>
             <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#FFC107] mb-3 block">
-              // PRODUCTION SHOWCASE
+              PRODUCTION SHOWCASE
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               Selected Work & <br className="hidden sm:inline" />

@@ -36,7 +36,7 @@ export const WhyChooseUs: React.FC = () => {
         {/* Title and subtitle */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] block mb-3">
-            // WHY STARVONIQ
+            WHY STARVONIQ
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B1F4D] leading-tight">
             We Don't Just Build. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">We Engineer.</span>

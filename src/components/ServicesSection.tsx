@@ -52,7 +52,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           {/* Left Column: Heading and info */}
           <div className="lg:col-span-4 flex flex-col items-start text-left sticky top-28">
             <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3">
-              // ARCHITECTURE & CAPABILITIES
+              ARCHITECTURE & CAPABILITIES
             </span>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B1F4D] leading-[1.1] mb-5">

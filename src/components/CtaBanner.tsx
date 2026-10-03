@@ -35,7 +35,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onStartProject, onWatchVid
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-[#FFC107] mb-5 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
                 <span className="text-[11px] font-mono font-bold tracking-widest uppercase">
-                  INITIATE ENGAGEMENT // GET STARTED
+                  INITIATE ENGAGEMENT GET STARTED
                 </span>
               </div>
 

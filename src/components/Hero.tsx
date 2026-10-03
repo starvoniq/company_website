@@ -77,13 +77,6 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onViewWork }) => {
           {/* Left Column: Headline and Call-To-Action */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             
-            {/* Tech Status Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-slate-200 bg-white/95 shadow-xs backdrop-blur-md mb-6 hover:border-[#2563EB]/40 transition-colors">
-              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-              <span className="text-[11px] font-mono font-semibold tracking-wider text-[#0B1F4D] uppercase">
-                STARVONIQ // CONNECTED SYSTEMS
-              </span>
-            </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-black tracking-tight leading-[1.05] text-[#0B1F4D] mb-6">
@@ -238,7 +231,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onViewWork }) => {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                   <span className="text-[10px] font-mono font-bold tracking-wider text-slate-200">
-                    REALTIME // ARCHITECTURE
+                    REALTIME ARCHITECTURE
                   </span>
                 </div>
 
