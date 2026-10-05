@@ -1,7 +1,6 @@
 import React from 'react';
 import { teamData } from '../data/siteData';
-import { Mail, MapPin, Target, CheckCircle2 } from 'lucide-react';
-import { LinkedInIcon, TwitterXIcon } from '../components/SocialIcons';
+import { MapPin, Target, CheckCircle2 } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   return (

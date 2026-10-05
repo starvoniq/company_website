@@ -16,7 +16,7 @@ export const ProcessSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  Subtle, rhythmic sequential flow that gently cycles through steps
+  // Subtle, rhythmic sequential flow that gently cycles through steps
   useEffect(() => {
     if (isHovered) return;
 

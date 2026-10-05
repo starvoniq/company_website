@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Globe } from 'lucide-react';
-import { LinkedInIcon, TwitterXIcon } from './SocialIcons';
+import { ArrowRight } from 'lucide-react';
 import { teamData } from '../data/siteData';
 
 export const TeamSection: React.FC = () => {
