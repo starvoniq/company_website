@@ -59,8 +59,8 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-xs text-slate-500 block">Phone & WhatsApp</span>
-                  <a href="tel:+254712345678" className="text-[#0B1F4D] hover:text-[#2563EB] font-semibold text-sm transition-colors">
-                    +254 712 345 678
+                  <a href="tel:+254719688799" className="text-[#0B1F4D] hover:text-[#2563EB] font-semibold text-sm transition-colors">
+                    +254719688799
                   </a>
                 </div>
               </div>
@@ -71,8 +71,8 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-xs text-slate-500 block">General Inquiries</span>
-                  <a href="mailto:hello@starvoniq.com" className="text-[#0B1F4D] hover:text-[#2563EB] font-semibold text-sm transition-colors">
-                    hello@starvoniq.com
+                  <a href="mailto:starvoniq@gmail.com" className="text-[#0B1F4D] hover:text-[#2563EB] font-semibold text-sm transition-colors">
+                    starvoniq@gmail.com
                   </a>
                 </div>
               </div>
