@@ -10,6 +10,7 @@ import { PortfolioPage } from './pages/PortfolioPage';
 import { AboutPage } from './pages/AboutPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -47,6 +48,7 @@ export function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </div>

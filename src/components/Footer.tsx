@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { StarVoniqLogo } from './StarVoniqLogo';
-import { FacebookIcon, LinkedInIcon, TwitterXIcon, InstagramIcon } from './SocialIcons';
+import { YouTubeIcon, LinkedInIcon, TwitterXIcon, InstagramIcon } from './SocialIcons';
 
 export const Footer: React.FC = () => {
   return (
@@ -23,20 +23,20 @@ export const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3">
               <a
-                href="https://facebook.com"
+                href="https://youtube.com/@t.e.c.h-s.p.a.c.e?si=UI74ia9km-bdLvoM"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
+                aria-label="YouTube"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
-                <FacebookIcon className="w-3.5 h-3.5" />
+                <YouTubeIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/starvoniq/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <LinkedInIcon className="w-3.5 h-3.5" />
               </a>
@@ -45,16 +45,16 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-black hover:border-white/30 hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <TwitterXIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/starvoniq?jplx=MTBxcTBzZDc5aXB6aw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#2563EB] hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:border-transparent hover:text-white border border-white/15 flex items-center justify-center text-slate-300 transition-all duration-200"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
               </a>
@@ -176,9 +176,9 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#FFD54F] transition-colors">
+                <Link to="/privacy-policy" className="hover:text-[#FFD54F] transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-[#FFD54F] transition-colors">
@@ -196,14 +196,14 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-slate-300">
                 <Phone className="w-3.5 h-3.5 text-[#FFC107] shrink-0" />
-                <a href="tel:+254712345678" className="hover:text-[#FFC107] transition-colors">
-                  +254 712 345 678
+                <a href="tel:+254719688799" className="hover:text-[#FFC107] transition-colors">
+                  +254719688799
                 </a>
               </li>
               <li className="flex items-center gap-2 text-slate-300">
                 <Mail className="w-3.5 h-3.5 text-[#FFC107] shrink-0" />
-                <a href="mailto:hello@starvoniq.com" className="hover:text-[#FFC107] transition-colors truncate">
-                  hello@starvoniq.com
+                <a href="mailto:starvoniq@gmail.com" className="hover:text-[#FFC107] transition-colors truncate">
+                  starvoniq@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-slate-300">
