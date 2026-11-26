@@ -4,7 +4,7 @@ export const PrivacyPolicyPage: React.FC = () => {
   return (
     <main className="pt-28 pb-16 max-w-3xl mx-auto px-4 sm:px-6 text-left">
       <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-      <p className="mb-6">Last updated: 25th November, 2026</p>
+      <p className="mb-6">Last updated: 26th November, 2026</p>
 
       <p className="mb-8">
         StarVoniq (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy and is committed to protecting the personal information you share when visiting our website or contacting us regarding our services.
@@ -48,7 +48,7 @@ export const PrivacyPolicyPage: React.FC = () => {
         </p>
       </section>
 
-      <section>
+      <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">6. Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy or how StarVoniq handles your personal information, please contact us at{' '}
@@ -60,6 +60,24 @@ export const PrivacyPolicyPage: React.FC = () => {
             +254719688799
           </a>
           .
+        </p>
+      </section>
+
+      <section>
+        <h2 id="delete-account" className="text-xl font-semibold mb-2 scroll-mt-28">
+          <a href="#delete-account" className="hover:underline">
+            7. Account and Data Deletion
+          </a>
+        </h2>
+        <p className="mb-2">
+          Users of <strong>BiasharaSmart</strong> can request the permanent deletion of their account and associated data at any time. To request deletion, please send an email to{' '}
+          <a href="mailto:starvoniq@gmail.com?subject=Delete%20Account" className="underline">
+            starvoniq@gmail.com
+          </a>{' '}
+          from your registered email address with the subject <strong>&ldquo;Delete Account&rdquo;</strong>.
+        </p>
+        <p>
+          Upon verification, we will permanently delete your account profile (name, email address, user ID) and associated shop/POS data within <strong>14 days</strong>. No personal data is retained after deletion is completed.
         </p>
       </section>
     </main>
